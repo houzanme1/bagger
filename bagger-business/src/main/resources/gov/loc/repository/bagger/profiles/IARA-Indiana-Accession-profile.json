@@ -1,34 +1,34 @@
 {
   "ordered":
-	[{"Accession/Transfer Number": {
+	[{"Accession/TransferNumber": {
 		"fieldRequired": true
 
-	}},{"Transferring-Agency/Code": {
+	}},{"TransferringAgency/Code": {
 		"fieldRequired": true
 	}},
 	{"Subdivision/Code": {
 		"fieldRequired": false
 	}},
-	{"Agency/Subdivision-Adress": {
+	{"Agency/SubdivisionAdress": {
 		"fieldRequired": false
 	}},
-	{"Transferring-Employee": {
+	{"TransferringEmployee": {
 		"fieldRequired": false
 	}},
 	
-	{"Receiving-Employee": {
+	{"ReceivingEmployee": {
 		"fieldRequired": false
 	}},
 
 	{"RecordsSeriesNumber": {
-		"fieldRequired": false
+		"fieldRequired": true
 
 	}},{"RecordsSeriesTitle": {
 		"fieldRequired": true
 	}},
 	{"RecordsSeriesRetention": {
 		"fieldRequired": false,
-		"valueList": ["Permanent(Keep-For-Ever)","Non-Permanent(Timed-Retention)", "Not-yet-Known"]
+		"valueList": ["Permanent (Keep-For-Ever)","Non-Permanent (Timed-Retention)", "Not-yet-Known"]
 		
 	}},
 
@@ -38,85 +38,94 @@
 		
 	}},
 
-	{"Records-Medium": {
+	{"RecordsMedium/Carrier": {
 		"filedRequired": true,
 		"defaultValue": "CD",
-		"valueList": ["CD", "DVD", "Blu-Ray", "Hard-Drive", "Usb-Flash/Thumb-Drive",
+		"valueList": [
+			"CD", 
+			"DVD", 
+			"Blu-Ray", 
+			"HDD/Hard-Drive", 
+			"USB-Flash/Thumb-Drive",
+			"Floppy3.5in",
+			"Floppy5.25in",
+			"Floppy8in",
+			"ZipDisk",
+			"JazzDrive",
+			"Tape/Disk Cartridge",
+			"MemoryCard (SD/MMC/etc.",
+			"Magneto-Optical-Disc (1990s)",
+			"MobileDevice (Phone/Tablet/etc.",
 			"Computer",
 			"Folder-on-Computer",
 			"Email/Attachment",
-			"API/CMIS/APP",
-			"Content/Records-Systems",
-			"FTP/SFTP/Network-Location",
-			"Floppy - 3.5 in ",
-			"Floppy - 5.25 in ",
-			"Floppy - 8 in ",
-			"Other - describe - in notes "]
+			"Content Systems (RMS/DMS/RDMS Repository)",
+			"Network Storage(NAS/SAN/FTP/SFTP)",
+			"Cloud Storage",
+			"Other( Describe in notes"]
 
 	}},
 
-	{"Number-Of-Media-Shipped": {
+	{"#TotalMediaTransferred": {
 		"fieldRequired": false
 	}},
 
-	{"Ship-Date": {
+	{"ReceivedDate": {
 		"fieldRequired": true
 	}},
-	{"Ship-Tracking-Number": {
+	{"Mailing/TrackingReference": {
 		"fieldRequired": false
 	}},
-	{"Ship-Method": {
+	{"MailingMethod": {
 		"fieldRequired": false
 	}},
-	{"Transfer-To-State-Archives": {
+	{"ReceivingInstitution/Archives": {
 		"fieldRequired": false,
 		"defaultValue": "Indiana Archives and Records Administration - 6444, E 30th Street, Indianapolis, IN 46219 "
 	}},
-
-
-	{"Birth-Means": {
+	{"BirthMeans": {
 		"filedRequired": true,
 		"defaultValue": "Born-Digital",
-		"valueList": ["Born-Digital","Reformatted/Recaptured Digital","Not-Yet-Known"]
+		"valueList": ["Born-Digital","Recaptured-Digital","Not-Yet-Known"]
 	}},
 
 
 	{"Originality/Uniqueness": {
 		"filedRequired": false,
 		"defaultValue": "???",
-		"valueList": ["Original-By-Birth","Surrogate(Physical/Original-Kept)","Original-By-Default(Physical/OriginalDestroyed)",
-	"No-Yet-Known"]
+		"valueList": ["Original-By-Birth","Surrogate (Physical/Original-Kept)","Original-By-Default (Physical/Original-Destroyed)",
+	"Not-Yet-Known"]
 	}},
 
-	{"Size-Before-Transfer": {
+	{"SizeBeforeTransfer(in KiloByte->KB)": {
 		"fieldRequired": false
 	}},
 
-	{"Hash/Signature-Before-Transfer": {
+	{"HashSignatureBeforeTransfer": {
 		"fieldRequired": false
 	}},
 
 
-	{"Hash/Signature-Type": {
+	{"HashSignatureType": {
 		"fieldRequired": false,
 		"defaultValue": "MD5",
 		"valueList": ["MD5","SHA1","SHA224","SHA256","SHA-512","SHA-384","SHA-512","SHA3-224","SHA3-256","SHA3-384","SHA3-512"]
 
 	}},
 
-	{"Surrogate/Duplicate-Location": {
+	{"Surrogate/DuplicateLocation": {
 		"fieldRequired": false
 	}},
 
 
-	{"Classification-Legal/series": {
+	{"Classification (by Legal/of Series)": {
 		"fieldRequired": false,
 		"defaultValue": "???",
-		"valueList": ["Open/Public","Confidential/Sensitive","Semi-Confidential","Top-Secret/Classified","Not-Yet-Known"]
+		"valueList": ["Open/Public","Semi-Confidential","Confidential/Sensitive","Classified/Top-Secret","Not-Yet-Known"]
 
 	}},
 	
-	{"Classification-Judgement/preservation": {
+	{"Classification (Appraisal for Preservation Decisions)": {
 		"fieldRequired": false,
 		"defaultValue": "???",
 		"valueList": ["Vital(Birth/Death/Marriage/Land/Rights)", "Critical(Indispensible for Business)",
@@ -126,51 +135,59 @@
 
 
 
-	{"Content-Type": {
+	{"ContentType": {
 		"filedRequired": true,
-		"defaultValue": "mixed formats",
-		"valueList": ["Word Processing", "Plain Text", "Text With MArkup", "Spreadsheet", "Presentation",
-
-			"Database", "Audio-Mono", "Audio-Stereo", "Video-High-Quality-Professional", "Video-Medium-Quality-Amateur",
-			"Video-Animation - or - Interactive ",
-			"Image - Raster (for Tiff,PNG,Jpeg,jpeg2000,etc.)",
-			"Image - Vector & CAD ",
-			"Image - Raw/Native ",
-			"Geospatial - Raster ",
-			"Geospatial - Vector ",
+		"defaultValue": "Multiple Types",
+		"valueList": [
+			"Word Processing", 
+			"PlainText", 
+			"Text With MArkup", 
+			"Spreadsheet", 
+			"Presentation",
+			"Database", 
+			"Audio-Mono", 
+			"Audio-Stereo", 
+			"Video-HighQuality/Professional", 
+			"Video-MediumQuality/Amateur",
+			"Video-Animation/Interactive",
+			"Image-Raster(for Tiff,PNG,Jpeg,jpeg2000,etc.)",
+			"Image-Vector/CAD ",
+			"Image-Raw/Native ",
+			"Geospatial-Raster ",
+			"Geospatial-Vector ",
 			"Email",
-			"WebPages/SocialMedia/Blogs",
-			"Software/Game/Application/code",
-			"Disk/Forensic Image",
-			"Archive (Zip/Tar/Arc/Warc, etc.)",
-			"Encrypted-With-key",
-			"Encrypted-No-Key(content-Unknown)",
-			"Mixed formats ",
-			"No-Yet-Known"]
+			"WebContent-Site/Page/SocialMedia/Blog/etc.",
+			"Software-Game/Application/VirtualMachine/Code/etc.",
+			"DiskImage/ForensicImage",
+			"Archive-Zip/Tar/Arc/Warc/SIRF/VEO/etc.",
+			"Encrypted (Key-Available/Accessible-Content)",
+			"Encrypted (No-Key/Inaccessible-Content))",
+			"Multiple Types",
+			"Not-Yet-Known"]
 	}},
 
 
-	{"Format Openness": {
+	{"FormatOpenness": {
 		"fieldRequired": true,
-		"valueList":["OpenSource","Proprietary","Semi-Open/Proprietary","Not-Yet-Known"]
+		"valueList":["Open/Standard","Ubiquitous/DeFacto","Proprietary","Not-Yet-Known"]
 
 	}},
 
 
-	{"Preservation-Stage": {
+	{"PreservationStage": {
 		"fieldRequired": false,
 		"defaultValue": "SIP",
 		"valueList": ["SIP","AIP","DIP","Encapsulated AIP"]
 	}},
 
 	
-	{"Location-Content-Copied-To": {
+	{"LocationContentCopiedTo": {
 		"fieldRequired": false
 	}},
-	{"Original-Media-Kept?": {
+	{"OriginalMediaKept?": {
 		"fieldRequired": false
 	}},
-	{"Original-Media-Location-if-Kept": {
+	{"OriginalMediaLocation-if-Kept": {
 		"fieldRequired": false
 	}},
 	{"Notes": {
